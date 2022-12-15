@@ -19,7 +19,6 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:' # optional, change this to force refresh cache
       - run: flutter --version
       - run: flutter pub get
       - run: flutter build apk --release --target-platform=android-arm64 --verbose
