@@ -17,12 +17,12 @@ jobs:
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:' # optional, change this to force refresh cache
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter build apk --release --split-per-abi --no-tree-shake-icons
+      - run: flutter build apk --release --target-platform=android-arm64 --verbose
       - run: flutter build apk --split-per-abi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
            name: arm64-release
-           path: build/app/outputs/apk/release/app-arm64-v8a-release.apk
-        
+           path: build/app/outputs/apk/release/app-release.apk
+           
